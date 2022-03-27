@@ -1,8 +1,8 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://mkvtoolnix.download/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-64.0.0.tar.xz"
-  sha256 "843ea623f21ae2407f8f42839c41a22abf116bdd509e87d875bdc737703ab953"
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-66.0.0.tar.xz"
+  sha256 "73a3f6c39b3580f28233f93555d282d07d5f51a8bbeb8b0bee09b820de80692c"
   license "GPL-2.0-only"
   head "https://gitlab.com/mbunkus/mkvtoolnix.git", branch: "main"
 
