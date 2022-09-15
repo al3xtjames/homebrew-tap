@@ -1,8 +1,8 @@
 class GnuEfi < Formula
   desc "Develop EFI applications using the GNU toolchain"
   homepage "https://sourceforge.net/projects/gnu-efi/"
-  url "https://newcontinuum.dl.sourceforge.net/project/gnu-efi/gnu-efi-3.0.14.tar.bz2"
-  sha256 "b73b643a0d5697d1f396d7431448e886dd805668789578e3e1a28277c9528435"
+  url "https://cytranet.dl.sourceforge.net/project/gnu-efi/gnu-efi-3.0.15.tar.bz2"
+  sha256 "931a257b9c5c1ba65ff519f18373c438a26825f2db7866b163e96d1b168f20ea"
   license "BSD-2-Clause"
   head "git://git.code.sf.net/p/gnu-efi/code", branch: "master"
 
