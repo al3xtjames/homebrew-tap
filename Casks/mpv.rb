@@ -2,7 +2,7 @@ cask "mpv" do
   version "0.39.0"
 
   on_arm do
-    url "https://web.archive.org/web/20240926120208/https://nightly.link/mpv-player/mpv/actions/runs/10999492923/mpv-macos-14-arm"
+    url "https://web.archive.org/web/20240926120208/https://nightly.link/mpv-player/mpv/actions/runs/10999492923/mpv-macos-14-arm.zip"
     sha256 "c2724fc11b0db2b01016e08d180250d0b9398fbbe18a59cf75bbe88bad696b0e"
     depends_on macos: ">= :sonoma"
   end
