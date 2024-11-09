@@ -1,5 +1,5 @@
 cask "mpv" do
-  version "0.39.0"
+  version "0.39.0-1"
 
   on_arm do
     url "https://web.archive.org/web/20240926120208/https://nightly.link/mpv-player/mpv/actions/runs/10999492923/mpv-macos-14-arm.zip"
@@ -20,7 +20,16 @@ cask "mpv" do
   conflicts_with formula: "mpv"
 
   app "mpv.app"
-  binary "#{appdir}/mpv.app/Contents/MacOS/mpv"
+  # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
+  shimscript = "#{staged_path}/mpv.wrapper.sh"
+  binary shimscript, target: "mpv"
+
+  preflight do
+    File.write shimscript, <<~EOS
+      #!/bin/sh
+      exec '#{appdir}/mpv.app/Contents/MacOS/mpv' "$@"
+    EOS
+  end
 
   zap trash: [
     "~/.config/mpv",
