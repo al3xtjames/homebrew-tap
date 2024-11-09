@@ -1,7 +1,6 @@
 cask "geekbench@5" do
   version "5.5.1"
   sha256 "04b06cb642e51230a3dfd07ce2d3a4ea696cb349583737622749174dc8747313"
-  depends_on macos: ">= :high_sierra"
 
   url "https://cdn.geekbench.com/Geekbench-#{version}-Mac.zip"
   name "Geekbench"
@@ -9,6 +8,7 @@ cask "geekbench@5" do
   homepage "https://www.geekbench.com/"
 
   auto_updates true
+  depends_on macos: ">= :high_sierra"
 
   app "Geekbench #{version.major}.app"
 
