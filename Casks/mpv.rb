@@ -17,8 +17,6 @@ cask "mpv" do
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io/"
 
-  conflicts_with formula: "mpv"
-
   app "mpv.app"
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/mpv.wrapper.sh"
