@@ -1,0 +1,14 @@
+owner = "metabrainz"
+repo = "picard"
+branch = "master"
+action_id = 458514 # .github/workflows/package.yml
+get_version = """
+import re
+
+dmg = zipfp.namelist()[0]
+version = re.findall(r"MusicBrainz-Picard-(.*)-macOS.*", dmg)[0]
+"""
+
+[artifacts]
+arm = "macos-app-11.0-arm64"
+intel = "macos-app-11.0-x86_64"

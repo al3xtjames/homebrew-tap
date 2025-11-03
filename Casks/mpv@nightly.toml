@@ -1,0 +1,18 @@
+owner = "mpv-player"
+repo = "mpv"
+branch = "master"
+action_id = 8994431 # .github/workflows/build.yml
+get_version = """
+from tarfile import TarFile
+import plistlib
+
+with zipfp.open("mpv.tar.gz") as fp:
+    with TarFile.open("r", fileobj=fp) as tarfp:
+        with tarfp.extractfile("mpv.app/Contents/Info.plist") as plistfp:
+            plist = plistlib.load(plistfp)
+            version = plist["CFBundleShortVersionString"]
+"""
+
+[artifacts]
+arm = "mpv-macos-14-arm"
+intel = "mpv-macos-13-intel"
