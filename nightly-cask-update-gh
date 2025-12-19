@@ -6,6 +6,7 @@ import json
 import hashlib
 import os
 import re
+import subprocess
 import sys
 import tomllib
 import urllib.request
@@ -98,7 +99,7 @@ def update_cask(
 
     for k, v in cask_artifacts.items():
         if k == "universal":
-            update_regex = rf"(url\s+\")(.*)(\"\s+)sha256(\s+\")([0-9a-f]*)(\")"
+            update_regex = r"(url\s+\")(.*)(\"\s+)sha256(\s+\")([0-9a-f]*)(\")"
         else:
             update_regex = (
                 rf"(on_{k}\s+do\s+url\s+\")(.*)(\"\s+)sha256(\s+\")([0-9a-f]*)(\")"
@@ -125,6 +126,18 @@ def update_cask(
             f.write(new_cask)
 
 
+def commit_cask_update(cask_path: str, cask_name: str, version: str):
+    proc = subprocess.run(
+        ["git", "commit", cask_path, "-m", f"{cask_name}: {version}", "-q"],
+        capture_output=True,
+    )
+    if proc.returncode != 0:
+        print(
+            f"error: git exited with non-zero status {proc.returncode}", file=sys.stderr
+        )
+        sys.exit(1)
+
+
 def main():
     parser = argparse.ArgumentParser(
         prog="cask-update-gh", description="Nightly Cask updater (for GitHub Actions)"
@@ -133,6 +146,13 @@ def main():
     parser.add_argument("cask", help="path to Cask file")
     parser.add_argument("config", help="path to config file")
     parser.add_argument(
+        "-c",
+        "--commit",
+        action="store_true",
+        help="commit changes to the Cask file",
+    )
+    parser.add_argument(
+        "-n",
         "--dry-run",
         action="store_true",
         help="show what edits would be made to the Cask file",
@@ -142,9 +162,25 @@ def main():
     cask_path = args.cask
     config_path = args.config
     dry_run = args.dry_run
+    commit = args.commit
+
+    if commit:
+        if dry_run:
+            print(
+                "error: --commit and --dry-run are mutually exclusive", file=sys.stderr
+            )
+            sys.exit(1)
+
+        proc = subprocess.run(["git", "diff-index", "--exit-code", "HEAD", cask_path])
+        if proc.returncode != 0:
+            print(f"warning: {cask_path} has uncommitted changes")
 
     with open(cask_path) as f:
         cask = f.read()
+
+    matches = re.search(r"cask\s+\"(.+)\"(.|\n)+version\s+\"(.+)\"", cask)
+    cask_name = matches[1]
+    current_version = matches[3]
 
     with open(config_path, "rb") as f:
         config = tomllib.load(f)
@@ -159,11 +195,17 @@ def main():
         sys.exit(0)
 
     artifact_links = get_artifact_links(run, config["artifacts"].values())
-    version = check_artifacts(
+    new_version = check_artifacts(
         config["artifacts"], artifact_links, config["get_version"]
     )
 
-    update_cask(cask, cask_path, version, config["artifacts"], artifact_links, dry_run)
+    update_cask(
+        cask, cask_path, new_version, config["artifacts"], artifact_links, dry_run
+    )
+    if commit:
+        commit_cask_update(cask_path, cask_name, new_version)
+
+    print(f"{cask_name}: {current_version} → {new_version}")
 
 
 main()
