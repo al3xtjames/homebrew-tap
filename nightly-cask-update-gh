@@ -172,7 +172,9 @@ def main():
             )
             sys.exit(1)
 
-        proc = subprocess.run(["git", "diff-index", "--exit-code", "HEAD", cask_path])
+        proc = subprocess.run(
+            ["git", "diff-index", "--exit-code", "HEAD", cask_path], capture_output=True
+        )
         if proc.returncode != 0:
             print(f"warning: {cask_path} has uncommitted changes")
 
