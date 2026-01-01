@@ -42,11 +42,12 @@ def get_artifact_links(run: dict, requested_artifacts: dict) -> dict:
 
     artifacts = {}
     for artifact in artifact_resp:
-        if artifact["name"] in requested_artifacts:
-            artifacts[artifact["name"]] = {
-                "url": f"https://nightly.link/{run['head_repository']['full_name']}/actions/runs/{run['id']}/{artifact['name']}.zip",
-                "digest": artifact["digest"],
-            }
+        for requested_artifact in requested_artifacts:
+            if re.match(requested_artifact, artifact["name"]):
+                artifacts[requested_artifact] = {
+                    "url": f"https://nightly.link/{run['head_repository']['full_name']}/actions/runs/{run['id']}/{artifact['name']}.zip",
+                    "digest": artifact["digest"],
+                }
 
     return artifacts
 
