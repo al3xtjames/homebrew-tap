@@ -1,20 +1,22 @@
 cask "mpv@nightly" do
-  version "0.41.0-dev-g9483d6e12"
-  depends_on macos: ">= :sequoia"
+  version "0.41.0-dev-g2007f5543"
 
   on_arm do
-    url "https://nightly.link/mpv-player/mpv/actions/runs/20870813220/mpv-v0.41.0-dev-g9483d6e12-20870813220-macos-15-arm.zip"
-    sha256 "63f31b3b7216c30b54ff175046185e78946caef921cd86a37fba01f7ad9b9ad9"
+    url "https://nightly.link/mpv-player/mpv/actions/runs/20978304864/mpv-v0.41.0-dev-g2007f5543-20978304864-macos-15-arm.zip"
+    sha256 "18711eb244d86073fff49d26fe6b6d5c5a63cd8aa9579867525111b676951195"
   end
 
   on_intel do
-    url "https://nightly.link/mpv-player/mpv/actions/runs/20870813220/mpv-v0.41.0-dev-g9483d6e12-20870813220-macos-15-intel.zip"
-    sha256 "044986c920917f4bab13904d966079b25827f7d98b5ba3b18f8adef8cf8bc5cc"
+    url "https://nightly.link/mpv-player/mpv/actions/runs/20978304864/mpv-v0.41.0-dev-g2007f5543-20978304864-macos-15-intel.zip"
+    sha256 "4dcd6ee737f9e1ac5313dd8c3a7713bacf6141da0aad7ed209808ed0a9a557a9"
   end
 
   name "mpv"
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io/"
+
+  conflicts_with cask: "mpv"
+  depends_on macos: ">= :sequoia"
 
   app "mpv.app"
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
@@ -27,6 +29,8 @@ cask "mpv@nightly" do
       exec '#{appdir}/mpv.app/Contents/MacOS/mpv' "$@"
     EOS
   end
+
+  uninstall quit: "io.mpv"
 
   zap trash: [
     "~/.config/mpv",
