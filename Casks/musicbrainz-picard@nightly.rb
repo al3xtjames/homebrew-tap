@@ -1,23 +1,26 @@
 cask "musicbrainz-picard@nightly" do
-  version "3.0.0.dev9+4028.21dfbfd47.20260105224444"
+  version "3.0.0.dev10+4129.1ae993c12.20260115050228"
 
   on_arm do
-    url "https://nightly.link/metabrainz/picard/actions/runs/20731446707/macos-app-11.0-arm64.zip"
-    sha256 "186872311651e9672a49563aa49b5b231881c22642a68f4c628223a6f1bd458f"
+    url "https://nightly.link/metabrainz/picard/actions/runs/21020328646/macos-app-11.0-arm64.zip"
+    sha256 "12a86ac8e94786654bd4835ef82a141acd915509e0723fdc9170cc137538a60a"
   end
 
   on_intel do
-    url "https://nightly.link/metabrainz/picard/actions/runs/20731446707/macos-app-11.0-x86_64.zip"
-    sha256 "b477510693a0763b5c721816f79e97864a1a40c3fb5fb49fbbbb93b1d44b3c3e"
+    url "https://nightly.link/metabrainz/picard/actions/runs/21020328646/macos-app-11.0-x86_64.zip"
+    sha256 "97e638ff229d7972f94b053e8241c1b0ac00db820066cef4322dc99ff63dcfbc"
   end
 
   name "MusicBrainz Picard"
   desc "Music tagger"
   homepage "https://picard.musicbrainz.org/"
 
+  conflicts_with cask: "musicbrainz-picard"
   depends_on macos: ">= :big_sur"
 
   app "MusicBrainz Picard.app"
+
+  uninstall quit: "org.musicbrainz.Picard"
 
   zap trash: [
     "~/.config/MusicBrainz",
