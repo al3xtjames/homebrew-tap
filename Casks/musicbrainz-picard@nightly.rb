@@ -1,14 +1,14 @@
 cask "musicbrainz-picard@nightly" do
-  version "3.0.0.alpha2+18.540bce51d.20260218204829"
+  version "3.0.0.alpha2+19.f8dbdda36.20260220141356"
 
   on_arm do
-    url "https://nightly.link/metabrainz/picard/actions/runs/22156968204/macos-app-11.0-arm64.zip"
-    sha256 "b7c500310da57bb464e3a3f2f444896dab08ca2bcce7f4c09e80934e3789e76d"
+    url "https://nightly.link/metabrainz/picard/actions/runs/22227367423/macos-app-11.0-arm64.zip"
+    sha256 "f786e476d95390edf782aac6436e66dac803859e65d6aa60a4d68ec2c1feba59"
   end
 
   on_intel do
-    url "https://nightly.link/metabrainz/picard/actions/runs/22156968204/macos-app-11.0-x86_64.zip"
-    sha256 "c9b23d1669c6b340d0c5494725ab63f3e337baaff11fc4dbc3a081bc8793f550"
+    url "https://nightly.link/metabrainz/picard/actions/runs/22227367423/macos-app-11.0-x86_64.zip"
+    sha256 "3da96b5c0316ff8d76efd09218f9bf0fcdf440cbabb3defd049bb2be56b976d8"
   end
 
   name "MusicBrainz Picard"
