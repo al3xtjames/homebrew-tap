@@ -1,14 +1,14 @@
-cask "musicbrainz-picard@nightly" do
-  version "3.0.0.alpha3+68.dd5cff30e.20260226201304"
+cask "musicbrainz-picard@beta" do
+  version "3.0.0b1"
 
   on_arm do
-    url "https://nightly.link/metabrainz/picard/actions/runs/22459327939/macos-app-11.0-arm64.zip"
-    sha256 "5e3150f86aa74ad7f10de2314b12e38f5f0726c66c14437d54d7938359d9242f"
+    url "https://github.com/metabrainz/picard/releases/download/release-#{version}/MusicBrainz-Picard-#{version}-macOS-11.0-arm64.dmg"
+    sha256 "ba6e9d99e1f1b832cfe1fa25aa03778252c3079c8c0293108270e321122d138b"
   end
 
   on_intel do
-    url "https://nightly.link/metabrainz/picard/actions/runs/22459327939/macos-app-11.0-x86_64.zip"
-    sha256 "4497685acdc0893bbef46d3f916e1bfd1b482fcc50367e2e58e2084957d0621e"
+    url "https://github.com/metabrainz/picard/releases/download/release-#{version}/MusicBrainz-Picard-#{version}-macOS-11.0-x86_64.dmg"
+    sha256 "eea0e478b09bdf966c28ba87825425184af2f99947eefc661c6c8e02c9462af4"
   end
 
   name "MusicBrainz Picard"
@@ -17,7 +17,7 @@ cask "musicbrainz-picard@nightly" do
 
   conflicts_with cask: [
     "musicbrainz-picard",
-    "musicbrainz-picard@beta",
+    "musicbrainz-picard@nightly",
   ]
   depends_on macos: ">= :big_sur"
 
