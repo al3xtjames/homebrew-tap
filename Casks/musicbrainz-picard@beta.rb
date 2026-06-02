@@ -1,14 +1,14 @@
 cask "musicbrainz-picard@beta" do
-  version "3.0.0b1"
+  version "3.0.0b4"
 
   on_arm do
-    url "https://github.com/metabrainz/picard/releases/download/release-#{version}/MusicBrainz-Picard-#{version}-macOS-11.0-arm64.dmg"
-    sha256 "ba6e9d99e1f1b832cfe1fa25aa03778252c3079c8c0293108270e321122d138b"
+    url "https://github.com/metabrainz/picard/releases/download/release-#{version}/MusicBrainz-Picard-#{version}-macOS-13.0-arm64.dmg"
+    sha256 "bdb9d446b9d48c67a5f6ae5c88720522ee0e5f371399034963eb2ecad0531661"
   end
 
   on_intel do
-    url "https://github.com/metabrainz/picard/releases/download/release-#{version}/MusicBrainz-Picard-#{version}-macOS-11.0-x86_64.dmg"
-    sha256 "eea0e478b09bdf966c28ba87825425184af2f99947eefc661c6c8e02c9462af4"
+    url "https://github.com/metabrainz/picard/releases/download/release-#{version}/MusicBrainz-Picard-#{version}-macOS-13.0-x86_64.dmg"
+    sha256 "589ec63dd550c69df0307782be68b0bfc44128cd5d1ce083d7e27758c5a72486"
   end
 
   name "MusicBrainz Picard"
@@ -19,7 +19,7 @@ cask "musicbrainz-picard@beta" do
     "musicbrainz-picard",
     "musicbrainz-picard@nightly",
   ]
-  depends_on macos: ">= :big_sur"
+  depends_on macos: ">= :ventura"
 
   app "MusicBrainz Picard.app"
 
