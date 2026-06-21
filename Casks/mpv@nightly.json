@@ -1,0 +1,10 @@
+{
+  "owner": "mpv-player",
+  "repo": "mpv",
+  "branch": "master",
+  "action_id": 8994431,
+  "artifacts": {
+    "arm": "mpv-macos-15-arm",
+    "intel": "mpv-macos-15-intel"
+  }
+}

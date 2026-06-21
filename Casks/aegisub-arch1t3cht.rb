@@ -1,15 +1,15 @@
 cask "aegisub-arch1t3cht" do
-  version "migration02-01"
+  version "migration03-02"
   depends_on macos: ">= :sequoia"
 
   on_arm do
-    url "https://github.com/arch1t3cht/Aegisub/releases/download/migration02-01/macOS.arm64.Release.-.installer.zip"
-    sha256 "2487566e3b1aec275c87bc549063406f1adfaab3cd069eb3a6fcaa76916f6348"
+    url "https://github.com/arch1t3cht/Aegisub/releases/download/#{version}/macOS.arm64.Release.-.installer.zip"
+    sha256 "decf40001eb4fc533395371c37c0ac6552471f1f9cfcb43893c15136eed58d13"
   end
 
   on_intel do
-    url "https://github.com/arch1t3cht/Aegisub/releases/download/migration02-01/macOS.x86_64.Release.-.installer.zip"
-    sha256 "9aed3f4181c0f82a366bb224ab94bf074ea73cab863f85b51cf3ca59c088bc91"
+    url "https://github.com/arch1t3cht/Aegisub/releases/download/#{version}/macOS.x86_64.Release.-.installer.zip"
+    sha256 "20ca893b48b48d6c02aaca1a7804743e354cb7ded6fde98c726c867dd51b66f1"
   end
 
   name "Aegisub"
