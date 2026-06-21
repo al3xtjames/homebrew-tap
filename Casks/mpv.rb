@@ -2,12 +2,12 @@ cask "mpv" do
   version "0.41.0"
 
   on_arm do
-    url "https://nightly.link/mpv-player/mpv/actions/runs/20414542745/mpv-macos-15-arm.zip"
+    url "https://github.com/mpv-player/mpv/releases/download/v0.41.0/mpv-v0.41.0-macos-15-arm.zip"
     sha256 "489cf6a54f57c54f86ad8d7cedaf5bb26848770d58dc059021214e2f689ee799"
   end
 
   on_intel do
-    url "https://nightly.link/mpv-player/mpv/actions/runs/20414542745/mpv-macos-15-intel.zip"
+    url "https://github.com/mpv-player/mpv/releases/download/v0.41.0/mpv-v0.41.0-macos-15-intel.zip"
     sha256 "41003617ab4f7784394b5ddea7ce51b3e0838e8cfc8166ad1a378b2eda3b583c"
   end
 
