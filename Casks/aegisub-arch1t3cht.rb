@@ -1,6 +1,6 @@
 cask "aegisub-arch1t3cht" do
   version "migration03-02"
-  depends_on macos: ">= :sequoia"
+  depends_on macos: :sequoia
 
   on_arm do
     url "https://github.com/arch1t3cht/Aegisub/releases/download/#{version}/macOS.arm64.Release.-.installer.zip"

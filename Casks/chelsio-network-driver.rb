@@ -7,7 +7,7 @@ cask "chelsio-network-driver" do
   desc "Chelsio T6/T5 Network Driver for macOS"
   homepage "https://service.chelsio.com/store2/T5/Network%20Driver%20(NIC)/Mac%20OS%20X/cxgb-#{version}/README.txt"
 
-  depends_on macos: ">= :sequoia"
+  depends_on macos: :sequoia
 
   pkg "cxgb.pkg"
 

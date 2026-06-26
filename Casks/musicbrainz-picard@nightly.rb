@@ -19,7 +19,7 @@ cask "musicbrainz-picard@nightly" do
     "musicbrainz-picard",
     "musicbrainz-picard@beta",
   ]
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
 
   app "MusicBrainz Picard.app"
 

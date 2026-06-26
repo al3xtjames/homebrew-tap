@@ -16,7 +16,7 @@ cask "mpv@nightly" do
   homepage "https://mpv.io/"
 
   conflicts_with cask: "mpv"
-  depends_on macos: ">= :sequoia"
+  depends_on macos: :sequoia
 
   app "mpv.app"
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)

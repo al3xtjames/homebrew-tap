@@ -11,7 +11,7 @@ cask "intel-power-gadget" do
 
   auto_updates true
   depends_on arch: :x86_64
-  depends_on macos: ">= :el_capitan"
+  depends_on macos: :el_capitan
 
   pkg "Install Intel Power Gadget.pkg"
 
