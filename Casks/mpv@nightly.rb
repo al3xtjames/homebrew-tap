@@ -19,16 +19,7 @@ cask "mpv@nightly" do
   depends_on macos: :sequoia
 
   app "mpv.app"
-  # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
-  shimscript = "#{staged_path}/mpv.wrapper.sh"
-  binary shimscript, target: "mpv"
-
-  preflight do
-    File.write shimscript, <<~EOS
-      #!/bin/sh
-      exec '#{appdir}/mpv.app/Contents/MacOS/mpv' "$@"
-    EOS
-  end
+  command_wrapper "mpv", executable: "#{appdir}/mpv.app/Contents/MacOS/mpv"
 
   uninstall quit: "io.mpv"
 
