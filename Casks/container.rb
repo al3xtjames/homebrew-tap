@@ -20,9 +20,8 @@ cask "container" do
   # container APIs aren't guaranteed to be backward compatible,
   # so we stop the system service to ensure no components are out of sync.
   # Ref: https://github.com/apple/container/issues/551#issuecomment-3246928923
-  postflight do
-    system_command "/usr/local/bin/container",
-                   args: ["system", "stop"]
+  postflight_steps do
+    run "/usr/local/bin/container", args: ["system", "stop"]
   end
 
   uninstall pkgutil: "com.apple.container-installer"
