@@ -1,14 +1,14 @@
 cask "musicbrainz-picard@beta" do
-  version "3.0.0b7"
+  version "3.0.0rc4"
 
   on_arm do
     url "https://data.musicbrainz.org/pub/musicbrainz/picard/MusicBrainz-Picard-#{version}-macOS-13.0-arm64.dmg"
-    sha256 "a1ac1d0e5dbcb900ad45abaf7f82b3bdaf259d508d83722ccc9d526ac10f0b6c"
+    sha256 "6d2fa56797b67621372ec1307a15b98a7487b48ea34528867422337363c92ef0"
   end
 
   on_intel do
     url "https://data.musicbrainz.org/pub/musicbrainz/picard/MusicBrainz-Picard-#{version}-macOS-13.0-x86_64.dmg"
-    sha256 "8e835675dbb25d657261197df33ae049e0e22f24081261dd545e2029c48162f9"
+    sha256 "57afbb8a542229fec51454350cac73fcf1a9f6af0e823faeb86bb3102f4dafb2"
   end
 
   name "MusicBrainz Picard"
