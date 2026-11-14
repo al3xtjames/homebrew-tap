@@ -1,14 +1,14 @@
 cask "mpv@nightly" do
-  version "0.41.0-dev-gbaa3e11d4"
+  version "0.42.0-dev-g649001d4e"
 
   on_arm do
-    url "https://nightly.link/mpv-player/mpv/actions/runs/40141553607/mpv-v0.41.0-dev-gbaa3e11d4-40141553607-macos-15-arm.zip"
-    sha256 "b996aeec2eb3c228838a6d41317b6a7f8b445939771ecfc7d5902b3040c274fd"
+    url "https://nightly.link/mpv-player/mpv/actions/runs/43517371464/mpv-v0.42.0-dev-g649001d4e-43517371464-macos-15-arm.zip"
+    sha256 "ec4106505cbbc3ac861f6f59c6adcd1911a549e67aa1ca83695c72bed02b644b"
   end
 
   on_intel do
-    url "https://nightly.link/mpv-player/mpv/actions/runs/40141553607/mpv-v0.41.0-dev-gbaa3e11d4-40141553607-macos-15-intel.zip"
-    sha256 "3d21b2837d92794bbad927bd3bead2a28871038e5a2f0697f5955fc8b185aa74"
+    url "https://nightly.link/mpv-player/mpv/actions/runs/43517371464/mpv-v0.42.0-dev-g649001d4e-43517371464-macos-15-intel.zip"
+    sha256 "6b17dcfb331559317e921c26c4de691690ac71a1909a12d3175da9502343d1df"
   end
 
   name "mpv"
